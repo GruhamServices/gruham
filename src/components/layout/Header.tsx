@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import { AuthButtons } from './AuthButtons'
 
 export function Header() {
   return (
@@ -21,14 +21,7 @@ export function Header() {
         </nav>
 
         {/* Auth Buttons */}
-        <div className="flex items-center gap-2">
-          <Button variant="ghost" size="sm">
-            Login
-          </Button>
-          <Button size="sm">
-            Sign Up
-          </Button>
-        </div>
+        <AuthButtons />
       </div>
     </header>
   )

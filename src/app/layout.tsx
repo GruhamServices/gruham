@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { Toaster } from '@/components/ui/sonner'
+import { SessionProvider } from '@/components/providers/SessionProvider'
 
 export const metadata: Metadata = {
   title: 'Gruham',
@@ -13,7 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <SessionProvider>
+          {children}
+          <Toaster />
+        </SessionProvider>
+      </body>
     </html>
   )
 }
