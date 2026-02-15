@@ -8,7 +8,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl font-bold mb-4">About RentMatch</h1>
+          <h1 className="text-4xl font-bold mb-4">About Gruham</h1>
           <p className="text-xl text-muted-foreground">
             Building trust in the rental market, one connection at a time.
           </p>
@@ -25,7 +25,7 @@ export default function AboutPage() {
             no way to know if a landlord will be responsive and fair.
           </p>
           <p className="text-lg text-muted-foreground mb-4">
-            RentMatch changes this by creating a mutual accountability system. 
+            Gruham changes this by creating a mutual accountability system. 
             Both landlords and tenants build reputation over time through honest 
             ratings and reviews. This transparency leads to better matches and 
             fewer disputes.
@@ -94,7 +94,7 @@ export default function AboutPage() {
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold mb-4">Built with ❤️</h2>
           <p className="text-lg text-muted-foreground">
-            RentMatch is built by a small team passionate about making the 
+            Gruham is built by a small team passionate about making the 
             rental experience better for everyone.
           </p>
         </div>

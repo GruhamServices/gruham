@@ -7,7 +7,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="font-bold text-lg mb-2">RentMatch</h3>
+            <h3 className="font-bold text-lg mb-2">Gruham</h3>
             <p className="text-sm text-muted-foreground">
               Find trusted tenants and landlords.
             </p>
@@ -42,7 +42,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} RentMatch. All rights reserved.
+          © {new Date().getFullYear()} Gruham. All rights reserved.
         </div>
       </div>
     </footer>

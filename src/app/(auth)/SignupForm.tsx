@@ -57,7 +57,7 @@ export function SignupForm() {
       <CardHeader className="text-center">
         <CardTitle className="text-2xl">Create an account</CardTitle>
         <CardDescription>
-          Enter your email to get started with RentMatch
+          Enter your email to get started with Gruham
         </CardDescription>
       </CardHeader>
       <form onSubmit={handleSubmit(onSubmit)}>
