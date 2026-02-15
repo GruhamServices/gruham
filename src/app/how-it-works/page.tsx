@@ -18,7 +18,7 @@ export default function HowItWorksPage() {
       {/* Hero */}
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl font-bold mb-4">How RentMatch Works</h1>
+          <h1 className="text-4xl font-bold mb-4">How Gruham Works</h1>
           <p className="text-xl text-muted-foreground">
             A simple process to find trusted landlords or reliable tenants.
           </p>
@@ -183,11 +183,11 @@ export default function HowItWorksPage() {
           <div className="space-y-4">
             <Card>
               <CardHeader>
-                <CardTitle>Is RentMatch free?</CardTitle>
+                <CardTitle>Is Gruham free?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Yes! RentMatch is completely free to use for both tenants and 
+                  Yes! Gruham is completely free to use for both tenants and 
                   property owners. We may introduce premium features in the future.
                 </p>
               </CardContent>
