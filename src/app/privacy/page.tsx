@@ -66,7 +66,7 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-semibold mt-8 mb-4">6. Contact Us</h2>
             <p className="text-muted-foreground mb-4">
               If you have any questions about this Privacy Policy, please contact 
-              us at support@rentmatch.com.
+              us at gruhamservices@gmail.com.
             </p>
           </div>
         </div>

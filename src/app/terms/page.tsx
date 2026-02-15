@@ -14,14 +14,14 @@ export default function TermsPage() {
 
             <h2 className="text-2xl font-semibold mt-8 mb-4">1. Acceptance of Terms</h2>
             <p className="text-muted-foreground mb-4">
-              By accessing and using RentMatch, you accept and agree to be bound 
+              By accessing and using Gruham, you accept and agree to be bound 
               by these Terms of Service. If you do not agree to these terms, 
               please do not use our service.
             </p>
 
             <h2 className="text-2xl font-semibold mt-8 mb-4">2. Description of Service</h2>
             <p className="text-muted-foreground mb-4">
-              RentMatch is a platform that connects property owners with potential 
+              Gruham is a platform that connects property owners with potential 
               tenants. We provide a rating and review system to help both parties 
               make informed decisions. We do not own, manage, or control any properties.
             </p>
@@ -52,7 +52,7 @@ export default function TermsPage() {
             <h2 className="text-2xl font-semibold mt-8 mb-4">5. Ratings and Reviews</h2>
             <p className="text-muted-foreground mb-4">
               Our rating system is designed to be fair and protect against abuse. 
-              By using RentMatch, you agree that:
+              By using Gruham, you agree that:
             </p>
             <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-4">
               <li>You will provide honest and accurate ratings</li>
@@ -63,14 +63,14 @@ export default function TermsPage() {
 
             <h2 className="text-2xl font-semibold mt-8 mb-4">6. Property Listings</h2>
             <p className="text-muted-foreground mb-4">
-              Property owners are solely responsible for their listings. RentMatch 
+              Property owners are solely responsible for their listings. Gruham 
               does not verify the accuracy of property information and is not 
               responsible for any disputes between owners and tenants.
             </p>
 
             <h2 className="text-2xl font-semibold mt-8 mb-4">7. Limitation of Liability</h2>
             <p className="text-muted-foreground mb-4">
-              RentMatch is a platform that facilitates connections. We are not 
+              Gruham is a platform that facilitates connections. We are not 
               responsible for the actions of users, the quality of properties, 
               or any damages arising from your use of the service.
             </p>
@@ -83,7 +83,7 @@ export default function TermsPage() {
 
             <h2 className="text-2xl font-semibold mt-8 mb-4">9. Contact</h2>
             <p className="text-muted-foreground mb-4">
-              For questions about these Terms, contact us at support@rentmatch.com.
+              For questions about these Terms, contact us at support@Gruham.com.
             </p>
           </div>
         </div>
