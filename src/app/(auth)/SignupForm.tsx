@@ -34,7 +34,7 @@ export function SignupForm() {
     setError(null)
 
     try {
-      const result = await signIn("email", {
+      const result = await signIn("resend", {
         email: data.email,
         redirect: false,
         callbackUrl: "/select-role",
