@@ -27,7 +27,7 @@ export default function ContactPage() {
                   <Mail className="w-8 h-8 text-primary mb-3" />
                   <h3 className="font-semibold mb-1">Email</h3>
                   <p className="text-muted-foreground text-sm">
-                    support@rentmatch.com
+                    gruhamservices@gmail.com
                   </p>
                 </CardContent>
               </Card>
@@ -37,7 +37,7 @@ export default function ContactPage() {
                   <MapPin className="w-8 h-8 text-primary mb-3" />
                   <h3 className="font-semibold mb-1">Location</h3>
                   <p className="text-muted-foreground text-sm">
-                    Mumbai, India
+                    Jaipur, India
                   </p>
                 </CardContent>
               </Card>
