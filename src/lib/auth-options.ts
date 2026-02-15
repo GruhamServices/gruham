@@ -3,12 +3,16 @@ import { PrismaAdapter } from "@auth/prisma-adapter"
 import Resend from "next-auth/providers/resend"
 import { prisma } from "./prisma"
 import { Resend as ResendClient } from "resend"
-
+import { authConfig } from "./auth.config"
 import type { NextAuthConfig } from "next-auth"
+import type { UserRole } from "@prisma/client"
 
 const resendClient = new ResendClient(process.env.AUTH_RESEND_KEY)
 
+// Full config with Prisma adapter, providers, and DB callbacks
+// Used by server components and API routes (Node.js runtime)
 const config: NextAuthConfig = {
+  ...authConfig,
   adapter: PrismaAdapter(prisma) as NextAuthConfig["adapter"],
 
   providers: [
@@ -50,42 +54,34 @@ const config: NextAuthConfig = {
     }),
   ],
 
-  session: {
-    strategy: "jwt",
-    maxAge: 30 * 24 * 60 * 60, // 30 days
-  },
-
-  pages: {
-    signIn: "/login",
-    verifyRequest: "/verify",
-    error: "/login",
-  },
-
   callbacks: {
-    jwt({ token, user, trigger, session }) {
-      if (user) {
-        token.id = user.id!
-        token.role = user.role
+    ...authConfig.callbacks,
+
+    async jwt({ token, user, trigger, session }) {
+      if (user?.id) {
+        token.id = user.id
+        // Get role from database
+        const dbUser = await prisma.user.findUnique({
+          where: { id: user.id },
+          select: { role: true },
+        })
+        token.role = dbUser?.role ?? null
       }
-      if (trigger === "update" && session?.role) {
-        token.role = session.role
+
+      // Handle session updates (after role selection)
+      if (trigger === "update" && (session as { role?: string })?.role) {
+        token.role = (session as { role: string }).role as UserRole
       }
+
       return token
     },
 
-    session({ session, token }) {
+    async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id as string
-        session.user.role = token.role as string | null
+        session.user.role = token.role as UserRole | null
       }
       return session
-    },
-
-    redirect({ url, baseUrl }) {
-      if (url.startsWith(baseUrl)) {
-        return url
-      }
-      return baseUrl
     },
   },
 }
