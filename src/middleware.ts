@@ -8,7 +8,18 @@ export default auth((req) => {
   const token = req.auth
   const path = req.nextUrl.pathname
 
-  // Public routes - always accessible
+  // Logged-in user with no role → force them to /select-role
+  // This must run BEFORE the public routes check, otherwise
+  // they'd land on "/" after signup and never be sent to role selection
+  if (token && !token.user?.role) {
+    // Allow the role selection page and the API that sets the role
+    if (path === "/select-role" || path === "/api/users/role") {
+      return NextResponse.next()
+    }
+    return NextResponse.redirect(new URL("/select-role", req.url))
+  }
+
+  // Public routes - always accessible (for non-logged-in users)
   const publicRoutes = ["/", "/login", "/signup", "/verify", "/about", "/how-it-works", "/contact", "/privacy", "/terms"]
   if (publicRoutes.includes(path)) {
     return NextResponse.next()
@@ -17,18 +28,6 @@ export default auth((req) => {
   // Not logged in → redirect to login
   if (!token) {
     return NextResponse.redirect(new URL("/login", req.url))
-  }
-
-  // User is logged in but has no role
-  if (!token.user?.role) {
-    // Allow access to select-role page
-    if (path === "/select-role") {
-      return NextResponse.next()
-    }
-    // Redirect to select-role for any other protected route
-    if (path.startsWith("/tenant") || path.startsWith("/owner") || path.startsWith("/admin")) {
-      return NextResponse.redirect(new URL("/select-role", req.url))
-    }
   }
 
   // User has role, check access
