@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider  = "postgresql"
 }
 
 enum UserRole {
@@ -24,13 +24,52 @@ model User {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
-  accounts Account[]
-  sessions Session[]
+  accounts      Account[]
+  sessions      Session[]
+  tenantProfile TenantProfile?
+  ownerProfile  OwnerProfile?
 
   @@index([email])
   @@index([role])
 }
 
+model TenantProfile {
+  id             String    @id @default(cuid())
+  userId         String    @unique
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  occupation     String?
+  age            Int?
+  phone          String?
+  neededByDate   DateTime?
+  additionalInfo String?
+  
+  isAvailable    Boolean   @default(false)
+  computedRating Decimal   @default(3.50) @db.Decimal(3, 2)
+  totalRatings   Int       @default(0)
+  
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([isAvailable])
+  @@index([computedRating])
+}
+
+model OwnerProfile {
+  id             String    @id @default(cuid())
+  userId         String    @unique
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  computedRating Decimal   @default(3.50) @db.Decimal(3, 2)
+  totalRatings   Int       @default(0)
+  
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([computedRating])
+}
+
+// NextAuth models (keep existing)
 model Account {
   id                String  @id @default(cuid())
   userId            String
