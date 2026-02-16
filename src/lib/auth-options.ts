@@ -22,10 +22,10 @@ const config: NextAuthConfig = {
         const result = await resendClient.emails.send({
           from: process.env.EMAIL_FROM!,
           to: email,
-          subject: "Sign in to RentMatch",
+          subject: "Sign in to Gruham",
           html: `
             <div style="max-width: 600px; margin: 0 auto; padding: 20px; font-family: sans-serif;">
-              <h1 style="color: #333; margin-bottom: 24px;">Welcome to RentMatch</h1>
+              <h1 style="color: #333; margin-bottom: 24px;">Welcome to Gruham</h1>
               <p style="color: #666; margin-bottom: 24px;">Click the button below to sign in to your account:</p>
               <a href="${url}" style="
                 display: inline-block;
@@ -35,7 +35,7 @@ const config: NextAuthConfig = {
                 text-decoration: none;
                 border-radius: 8px;
                 font-weight: 500;
-              ">Sign In to RentMatch</a>
+              ">Sign In to Gruham</a>
               <p style="color: #999; margin-top: 24px; font-size: 14px;">
                 This link expires in 24 hours and can only be used once.
               </p>
