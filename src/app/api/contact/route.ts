@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
     const { error } = await resend.emails.send({
       from: process.env.EMAIL_FROM!,
       to: process.env.ADMIN_EMAIL || process.env.EMAIL_FROM!,
-      subject: `[RentMatch Contact] ${subject}`,
+      subject: `[Gruham Contact] ${subject}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
           <h2>New Contact Form Submission</h2>
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
           <p style="white-space: pre-wrap;">${message}</p>
           <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
           <p style="color: #666; font-size: 12px;">
-            This email was sent from the RentMatch contact form.
+            This email was sent from the Gruham contact form.
           </p>
         </div>
       `,
@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
     await resend.emails.send({
       from: process.env.EMAIL_FROM!,
       to: email,
-      subject: "We received your message - RentMatch",
+      subject: "We received your message - Gruham",
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
           <h2>Thank you for contacting us!</h2>
@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
           <p>We've received your message and will get back to you as soon as possible.</p>
           <p><strong>Your message:</strong></p>
           <p style="background: #f5f5f5; padding: 15px; border-radius: 8px; white-space: pre-wrap;">${message}</p>
-          <p>Best regards,<br />The RentMatch Team</p>
+          <p>Best regards,<br />The Gruham Team</p>
         </div>
       `,
     })
@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: "Invalid form data", details: error.errors },
+        { error: "Invalid form data", details: error.issues },
         { status: 400 }
       )
     }

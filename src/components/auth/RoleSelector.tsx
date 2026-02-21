@@ -90,7 +90,7 @@ export function RoleSelector() {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <h1 className="text-2xl font-bold">Welcome to RentMatch!</h1>
+        <h1 className="text-2xl font-bold">Welcome to Gruham!</h1>
         <p className="text-muted-foreground mt-2">
           How would you like to use the platform?
         </p>
